@@ -1,16 +1,6 @@
 ---
 title: Home
 layout: home
-title: Overview
-layout: Overview
-title: Prerequisites
-layout: Prerequisites
-title: Incident Response Steps
-layout: Incident Response Steps
-title: Additional Resources
-layout: Additional Resources
-title: Notes
-layout: Notes
 ---
 
 # Production Incident Runbook
