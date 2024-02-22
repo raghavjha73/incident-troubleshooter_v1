@@ -1,8 +1,5 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: Production Incident Runbook
+description: This document serves as a quick reference runbook for on-call engineers during the initial phase of troubleshooting production incidents. It highlights the steps to be taken for validating and diagnosing common issues, with links to relevant dashboards and tools.!
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
 
-aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
