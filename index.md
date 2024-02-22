@@ -3,7 +3,6 @@ title: Home
 layout: home
 ---
 
-# Production Incident Runbook
 
 ## Overview
 
