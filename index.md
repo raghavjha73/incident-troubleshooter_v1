@@ -45,7 +45,7 @@ This document provides DevOps engineers, a structured approach for initial incid
 
 
 - Review recent changes or deployments that might have impacted the system.
-- Note: The above mentioned steps are indicative only. Please understand the nature of the issue and then use appropriate tools and dashboard for the analysis in whatever sequence applicable.
+- **Note**: The above mentioned steps are indicative only. Please understand the nature of the issue and then use appropriate tools and dashboard for the analysis in whatever sequence applicable.
 
 ### 3. Log Analysis
 
