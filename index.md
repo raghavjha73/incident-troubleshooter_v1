@@ -1,7 +1,8 @@
 ---
-title: Home
+layout: default
 ---
 
+# Production Incident Runbook
 
 ## Overview
 
@@ -28,23 +29,23 @@ This document provides DevOps engineers, a structured approach for initial incid
 
 - Utilize below dashboard as needed for doing initial validation
 
-| Feature      | What to check?                                   | Links |
-|:-------------|:----------------------------------------------|:---------:|
-| WCNP Deployment Report | Any deployment done recently?                 | [WCNP Deployment Report](http://tridents-portal.walmart.com/wcnpProductFinal "WCNP Deployment Report" )      |
-| DC to Cloud Latency         | Latency details for impact DCs from 3 Azure cloud regions i.e. SCUS, WUS & EUS                   | [DC to Cloud Latency](https://tridents-portal.walmart.com/selectDC  "DC to Cloud Latency")    |
-| Atlas App and Infra Uptime     | Uptime details of impacted ATLAS Services and Infrastructure       | [Atlas App and Infra Uptime](https://tridents-portal.walmart.com/uptimeFinal?env=PROD  "Atlas App and Infra Uptime")      |
-| AZ SQL Dashboard    |  Any CPU spike, deadlocks, disk fill, blocking etc. | [AZ SQL Dashboard](https://grafana.mms.walmart.net/d/aUZKcsP0Mg/azure-sql-dashboard?orgId=1&refresh=1m "AZ SQL Dashboard" )      |
-| MS SQL Dashboard | Any CPU spike, deadlocks, disk fill, blocking etc.                 | [MS SQL Dashboard](https://grafana.mms.walmart.net/d/3XUKpigfi/atlas-db-performance-v2?orgId=1&refresh=1m  "MS SQL Dashboard" )      |
-| WCNP Resource Utilization | CPU, Memory utilization, OOM, Container restarts etc.               | [WCNP Resource Utilization](https://grafana.mms.walmart.net/d/7Wushy_mk/apps?orgId=1&from=now-7d&to=now&var-datasource=production&var-namespace=atlas-lpaas&var-cluster_id=scus-prod-a32&var-cluster_id=scus-prod-a56&var-app=All&var-interval=$__auto_interval_interval&var-long_interval=$__auto_interval_long_interval "WCNP Resource Utilization")      |
-| Dynatrace | Ongoing problem ticket for the impacted service, thread pool exhausation,heap memory utilization, purepath, any failed requests etc.                 | [Dynatrace](https://prod-walmart.dynatrace-managed.com/e/a62524c7-8dae-4cfd-856a-12b8462f3520/ui/services?gtf=-7d%20to%20now&gf=1902260220275616316&sorting=name;asc "Dynatrace")       |
-| Kafka | Kafka broker health, consumer lag, consumer rebalancing                 | [Kafka](https://grafana.mms.walmart.net/d/o7eRAUOpgGz2/managed-kafka-broker-metrics?orgId=1&var-datasource=production&var-assembly=kafka-v2-atlas-scus-wus-prod&var-platform=kafka&var-environment=scus&var-cloud=prod-az-southcentralus-25&var-lenses_ip=10.236.124.36 "Kafka")      |
-| K8s | Application restart time, number of pods, health of pods etc.                 | [K8s](https://k8s-dashboard.kube-system.scus-prod-a32.cluster.k8s.us.walmart.net/#/workloads?namespace=atlas-lpaas "K8s" )      |
-| SQL DB Troubleshooting Guide | Use this for troubleshooting blocking sessions,long running query,db status, db space full, purge status , cpu utilization, data io utilization etc.                | [SQL DB Troubleshooting Guide](https://confluence.walmart.com/display/NIMAUT/SQL+DB+Troubleshooting+Guide "SQL DB Troubleshooting Guide" )      |
-| GSLB Traffic Routing | Answers by DC, Answers by cloud                | [GSLB Traffic Routing](https://grafana.mms.walmart.net/d/000000098/gslb-by-domain?orgId=1&refresh=1m&var-datasource=production&var-origin=inv-server-cloud-us-perf-cell000.atlas-inventory.k8s.glb.us.walmart.net&var-client_dc=All&from=now-5m&to=now "GSLB Traffic Routing" )      |
+|Sequence| Feature      | What to check?                                   | Links |
+|Step 1|:-------------|:----------------------------------------------|:---------:|
+|Step 2| WCNP Deployment Report | Any deployment done recently?                 | [WCNP Deployment Report](http://tridents-portal.walmart.com/wcnpProductFinal "WCNP Deployment Report" )      |
+|Step 3| DC to Cloud Latency         | Latency details for impact DCs from 3 Azure cloud regions i.e. SCUS, WUS & EUS                   | [DC to Cloud Latency](https://tridents-portal.walmart.com/selectDC  "DC to Cloud Latency")    |
+|Step 4| Atlas App and Infra Uptime     | Uptime details of impacted ATLAS Services and Infrastructure       | [Atlas App and Infra Uptime](https://tridents-portal.walmart.com/uptimeFinal?env=PROD  "Atlas App and Infra Uptime")      |
+|Step 5| AZ SQL Dashboard    |  Any CPU spike, deadlocks, disk fill, blocking etc. | [AZ SQL Dashboard](https://grafana.mms.walmart.net/d/aUZKcsP0Mg/azure-sql-dashboard?orgId=1&refresh=1m "AZ SQL Dashboard" )      |
+|Step 6| MS SQL Dashboard | If using MS SQL DB, check for any CPU spike, deadlocks, disk fill, blocking etc.                 | [MS SQL Dashboard](https://grafana.mms.walmart.net/d/3XUKpigfi/atlas-db-performance-v2?orgId=1&refresh=1m  "MS SQL Dashboard" )      |
+|Step 7| WCNP Resource Utilization | CPU, Memory utilization, OOM, Container restarts etc.               | [WCNP Resource Utilization](https://grafana.mms.walmart.net/d/7Wushy_mk/apps?orgId=1&from=now-7d&to=now&var-datasource=production&var-namespace=atlas-lpaas&var-cluster_id=scus-prod-a32&var-cluster_id=scus-prod-a56&var-app=All&var-interval=$__auto_interval_interval&var-long_interval=$__auto_interval_long_interval "WCNP Resource Utilization")      |
+|Step 8| Dynatrace | Ongoing problem ticket for the impacted service, thread pool exhausation,heap memory utilization, purepath, any failed requests etc.                 | [Dynatrace](https://prod-walmart.dynatrace-managed.com/e/a62524c7-8dae-4cfd-856a-12b8462f3520/ui/services?gtf=-7d%20to%20now&gf=1902260220275616316&sorting=name;asc "Dynatrace")       |
+|Step 9| Kafka | If problem is asociated with Kafka, check for Kafka broker health, consumer lag, consumer rebalancing                 | [Kafka](https://grafana.mms.walmart.net/d/o7eRAUOpgGz2/managed-kafka-broker-metrics?orgId=1&var-datasource=production&var-assembly=kafka-v2-atlas-scus-wus-prod&var-platform=kafka&var-environment=scus&var-cloud=prod-az-southcentralus-25&var-lenses_ip=10.236.124.36 "Kafka")      |
+|Step 10| K8s | Application restart time, number of pods, health of pods etc.                 | [K8s](https://k8s-dashboard.kube-system.scus-prod-a32.cluster.k8s.us.walmart.net/#/workloads?namespace=atlas-lpaas "K8s" )      |
+|Step 11| SQL DB Troubleshooting Guide | Use this for troubleshooting blocking sessions,long running query,db status, db space full, purge status , cpu utilization, data io utilization etc.                | [SQL DB Troubleshooting Guide](https://confluence.walmart.com/display/NIMAUT/SQL+DB+Troubleshooting+Guide "SQL DB Troubleshooting Guide" )      |
+|Step 12| GSLB Traffic Routing | Answers by DC, Answers by cloud                | [GSLB Traffic Routing](https://grafana.mms.walmart.net/d/000000098/gslb-by-domain?orgId=1&refresh=1m&var-datasource=production&var-origin=inv-server-cloud-us-perf-cell000.atlas-inventory.k8s.glb.us.walmart.net&var-client_dc=All&from=now-5m&to=now "GSLB Traffic Routing" )      |
 
 
 - Review recent changes or deployments that might have impacted the system.
-
+- Note: The above mentioned steps are indicative only. Please understand the nature of the issue and then use appropriate tools and dashboard for the analysis in whatever sequence applicable.
 
 ### 3. Log Analysis
 
@@ -66,7 +67,7 @@ This document provides DevOps engineers, a structured approach for initial incid
 ### 7. Quick Mitigation
 
 - If a quick fix is possible (e.g., restarting a service or scaling up resources), attempt it using below link by choosing the appropriate options.
-- [Mitigation options](https://dx.walmart.com/wcnp/documentation/github/WCNP-Workload-Tools-6fa77ae256dc944990ebb7e8bf64273d69433bbfedb086355d3cb79cd3a73d83#app-interactions "Mitigation options")
+- [Mitigation options](https://dx.walmart.com/wcnp/tools/execute "Mitigation options")
 
 ### 8. Escalation
 
